@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <UserSecretsId>54e8eb06-aaa1-4fff-9f05-3ced1cb623c2</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Customers\**" />
+    <Compile Remove="logs\**" />
+    <Compile Remove="AQS.OrderProject.Domain\**" />
+    <Content Remove="Customers\**" />
+    <Content Remove="logs\**" />
+    <Content Remove="AQS.OrderProject.Domain\**" />
+    <EmbeddedResource Remove="Customers\**" />
+    <EmbeddedResource Remove="logs\**" />
+    <EmbeddedResource Remove="AQS.OrderProject.Domain\**" />
+    <None Remove="Customers\**" />
+    <None Remove="logs\**" />
+    <None Remove="AQS.OrderProject.Domain\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="6.0.1" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="Hellang.Middleware.ProblemDetails" Version="6.4.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+    <PackageReference Include="Quartz" Version="3.3.3" />
+    <PackageReference Include="Serilog.Formatting.Compact" Version="1.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AQS.OrderProject.Application\AQS.OrderProject.Application.csproj" />
+    <ProjectReference Include="..\AQS.OrderProject.Infrastructure\AQS.OrderProject.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Production.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
